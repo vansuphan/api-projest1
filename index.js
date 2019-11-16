@@ -8,7 +8,9 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true}).
     catch(error => handleError(error));
 
 let loginRoute = require('./routes/login.route');
-var productRoute = require('./routes/product.route');
+let productRoute = require('./routes/product.route');
+let authLogin = require('./middlewares/auth.middleware');
+
 app.use(express.json());
 let bodyParser = require('body-parser');
 
@@ -26,5 +28,5 @@ app.get('/', (req,res)=>{
     res.send('Hello there');
 });
 app.use('/login', loginRoute);
-app.use('/product', productRoute);
+app.use('/product', authLogin.auth, productRoute);
 app.listen(port,()=> console.log('server on'));

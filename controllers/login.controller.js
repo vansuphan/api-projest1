@@ -1,6 +1,7 @@
 const md5 = require('md5');
 const Users = require('../models/user.model');
 const jwt = require('jsonwebtoken');
+
 module.exports.login = function (req, res, next) {
     res.send('Login...');
 }

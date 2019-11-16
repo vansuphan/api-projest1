@@ -1,8 +1,16 @@
 const express = require('express');
 const router = express.Router();
-var productController = require('../controllers/product.controller');
+let productController = require('../controllers/product.controller');
+const Product = require('../models/product.model');
+
 router.post('/', productController.postProduct );
+
 router.get('/',(req,res)=>{
-    res.send('product')
+    var idproduct = req.body.id
+    let product = Product.findOne({
+        idproduct : idproduct
+    });
+    res.json(product);
 });
+
 module.exports = router;
