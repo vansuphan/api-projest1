@@ -1,6 +1,6 @@
 const md5 = require('md5');
 const Users = require('../models/user.model');
-const = jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 module.exports.login = function (req, res, next) {
     res.send('Login...');
 }
@@ -36,6 +36,6 @@ module.exports.postlogin = async function (req, res, next) {
     res.locals.message.success = true;
     res.locals.message.messages = "Oke rồi!";
     const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET );
-    res.header('auth-token',token).send(token);
+    res.header('auth-token',token);
     res.status(200).send(res.locals.message);
 };
