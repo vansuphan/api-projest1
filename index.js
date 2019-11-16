@@ -1,7 +1,7 @@
 require('dotenv').config(); 
 const express = require('express');
 const app  = express();
-const port = 1111 || process.env.PORT;
+const port =  process.env.PORT || 1111;
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true}).
@@ -23,4 +23,4 @@ app.get('/', (req,res)=>{
     res.send('Hello there');
 });
 app.use('/login', loginRoute);
-app.listen(port,()=> console.log('server on port 1111'));
+app.listen(port,()=> console.log('server on'));
