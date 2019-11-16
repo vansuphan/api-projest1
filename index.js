@@ -1,7 +1,7 @@
 require('dotenv').config(); 
 const express = require('express');
 const app  = express();
-const port = 1111;
+const port = 1111|| process.env.PORT;
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true}).
