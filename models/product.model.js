@@ -3,8 +3,16 @@ var mongoose = require('mongoose');
 var productSchema = new mongoose.Schema({
     idproduct : String,
     type : String,
-    productname: String,
-    amount : Number,
+    productname: {
+        required: true,
+        type: String,
+        min : 4,
+        max : 255
+    },
+    amount : {
+        type : Number,
+        required: true
+    },
     color : String,
     price : Number,
     note : String,
