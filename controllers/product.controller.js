@@ -3,10 +3,24 @@ const Product = require('../models/product.model');
 
 var ids = require('short-id');
 module.exports.postProduct = async function (req, res, next) {
-    var message = {
+    let message = {
         success : true,
         messages: ""
     };
+    let reqProduct = await Product.findOne({
+        productname : req.body.productname
+    },(err)=>{
+        if(err){
+            return err;
+        }
+    });
+    if(reqProduct){
+        message.success = false;
+        message.messages = "Không thêm được";
+        res.json(message);
+        res.status(400).send(err);
+        return;
+    }
     const product = new Product({
         idproduct : ids.generate(),
         type : req.body.type,
