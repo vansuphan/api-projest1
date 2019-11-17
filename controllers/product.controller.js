@@ -3,6 +3,7 @@ const Product = require('../models/product.model');
 
 var ids = require('short-id');
 module.exports.postProduct = async function (req, res, next) {
+    var message = res.locals.message;
     const product = new Product({
         idproduct : ids.generate(),
         type : req.body.type,
@@ -15,8 +16,14 @@ module.exports.postProduct = async function (req, res, next) {
     });
     try {
         const saveProduct = await product.save();
-        res.send("Da them san pham");
+        message.success = true;
+        message.messages = "Đã thêm sản phẩm";
+        res.status(200).send(message);
     } catch (error) {
+        message.success = false;
+        message.messages = "Đã thêm sản phẩm";
+        res.json(message);
         res.status(400).send(err);
+        
     }
 };
