@@ -24,7 +24,7 @@ module.exports.postProduct = async function (req, res, next) {
         res.status(200).send(message);
     } catch (error) {
         message.success = false;
-        message.messages = "Đã thêm sản phẩm";
+        message.messages = "Không thêm được";
         res.json(message);
         res.status(400).send(err);
         
