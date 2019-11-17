@@ -3,7 +3,10 @@ const Product = require('../models/product.model');
 
 var ids = require('short-id');
 module.exports.postProduct = async function (req, res, next) {
-    var message = res.locals.message;
+    var message = {
+        success : true,
+        messages: ""
+    };
     const product = new Product({
         idproduct : ids.generate(),
         type : req.body.type,
