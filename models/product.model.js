@@ -14,7 +14,14 @@ var productSchema = new mongoose.Schema({
         required: true
     },
     color : String,
-    price : Number,
+    price :{
+        type: Number,
+        required : true
+    },
+    retailprice :{
+        type: Number,
+        required : true
+    },
     note : String,
     img : String
 });

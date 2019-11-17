@@ -14,6 +14,7 @@ module.exports.postProduct = async function (req, res, next) {
         amount : req.body.amount,
         color : req.body.color,
         price : req.body.price,
+        retailprice : req.body.price,
         note : req.body.note,
         img : req.body.img
     });
