@@ -28,5 +28,5 @@ app.get('/', (req,res)=>{
     res.send('Hello there');
 });
 app.use('/login', loginRoute);
-app.use('/product', productRoute);  //  authLogin.auth,
+app.use('/products', productRoute);  //  authLogin.auth,
 app.listen(port,()=> console.log('server on'));

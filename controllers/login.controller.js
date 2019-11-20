@@ -36,7 +36,9 @@ module.exports.postlogin = async function (req, res, next) {
     }
     res.locals.message.success = true;
     res.locals.message.messages = "Oke rồi!";
+
     const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET );
     res.header('auth-token',token);
     res.status(200).send(res.locals.message);
+
 };

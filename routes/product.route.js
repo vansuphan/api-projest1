@@ -5,16 +5,6 @@ const Product = require('../models/product.model');
 
 router.post('/', productController.postProduct );
 
-router.get('/',(req,res)=>{
-    var idproduct = req.body.id
-    if(!idproduct){
-        
-        res.send('No data');
-    }
-    let product = Product.findOne({
-        idproduct : idproduct
-    });
-    res.json(product);
-});
+router.get('/',);
 
 module.exports = router;

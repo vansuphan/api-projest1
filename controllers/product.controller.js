@@ -2,6 +2,19 @@ const md5 = require('md5');
 const Product = require('../models/product.model');
 
 var ids = require('short-id');
+
+module.exports.getProducts = async function(req, res, next){
+    // var idproduct = req.body.id
+    // if(!idproduct){
+    //     res.send('No data');
+    // }
+    let product = await Product.findOne({
+        idproduct : idproduct
+    });
+    res.json(product);
+    // next();
+}
+
 module.exports.postProduct = async function (req, res, next) {
     let message = {
         success : true,
