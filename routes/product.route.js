@@ -5,6 +5,6 @@ const Product = require('../models/product.model');
 
 router.post('/', productController.postProduct );
 
-router.get('/',);
+router.get('/', productController.getProducts);
 
 module.exports = router;
