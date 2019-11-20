@@ -8,9 +8,10 @@ module.exports.getProducts = async function(req, res, next){
     // if(!idproduct){
     //     res.send('No data');
     // }
-    let product = await Product.findOne({
-        idproduct : idproduct
-    });
+    // let product = await Product.findOne({
+    //     idproduct : idproduct
+    // });
+    let product = await Product.findOne();
     res.json(product);
     // next();
 }
