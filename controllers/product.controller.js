@@ -12,7 +12,7 @@ module.exports.getProducts = async function(req, res, next){
     //     idproduct : idproduct
     // });
     var restValue = []
-    let product = await Product.findOne();
+    let product = await Product.find();
     restValue.push(product);
     res.json(restValue);
     // next();
