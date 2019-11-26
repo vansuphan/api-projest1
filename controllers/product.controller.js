@@ -4,14 +4,16 @@ const Product = require('../models/product.model');
 var ids = require('short-id');
 
 module.exports.getProducts = async function(req, res, next){
-    // var idproduct = req.body.id
-    // if(!idproduct){
-    //     res.send('No data');
-    // }
-    // let product = await Product.findOne({
-    //     idproduct : idproduct
-    // });
     let products = await Product.find();
+    res.json(products);
+    // next();
+}
+
+module.exports.getType = async function(req, res, next){
+    let type = req.type;
+    let products = await Product.find({
+        type: type
+    });
     res.json(products);
     // next();
 }
