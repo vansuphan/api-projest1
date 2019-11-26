@@ -10,7 +10,7 @@ module.exports.getProducts = async function(req, res, next){
 }
 
 module.exports.getType = async function(req, res, next){
-    let type = req.type;
+    let type = req.body.type;
     let products = await Product.find({
         type: type
     });
