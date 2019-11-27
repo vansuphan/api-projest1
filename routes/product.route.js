@@ -7,5 +7,5 @@ router.post('/', productController.postProduct );
 
 router.get('/', productController.getProducts);
 
-router.get('/type', productController.getType);
+router.get('/:type', productController.getType);
 module.exports = router;
