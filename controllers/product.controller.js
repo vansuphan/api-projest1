@@ -13,6 +13,7 @@ module.exports.getType = async function(req, res, next){
     let type = req.params.type;
     if(type.length() == 0){
         res.send('Đéo có nha');
+        return;
     }
     let products = await Product.find({
         type: type
