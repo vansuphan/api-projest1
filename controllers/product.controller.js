@@ -15,7 +15,7 @@ module.exports.getType = async function(req, res, next){
     let products = await Product.find({
         type: type
     });
-    if(products.length() === 0){
+    if(products.length === 0){
         res.send('Đéo có nha');
         return;
     }
